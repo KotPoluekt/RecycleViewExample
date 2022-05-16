@@ -1,5 +1,6 @@
 package com.example.recycleview
 
+import android.graphics.Color
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,6 +14,11 @@ class NewsItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: NewsItem, listener: NewsItemAdapter.NewsClickListener) {
         titleTv.text = item.title
         subtitleTv.text = item.subtitle
+        if (item.color == Color.BLUE) {
+            titleTv.setTextColor(Color.BLUE)
+        } else {
+            titleTv.setTextColor(Color.BLACK)
+        }
         imageView.setBackgroundColor(item.color)
         imageView.setOnClickListener{
             listener.onFavoriteClick(
